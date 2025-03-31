@@ -1,0 +1,26 @@
+// Backend (Node.js z Express)
+const express = require('express');
+const app = express();
+
+app.get('/user', (req, res) => {
+  // Pobierz fikcyjne dane użytkownika z bazy danych lub pliku JSON
+  const user = {
+    imie: 'Dominik',
+    nazwisko: 'Szulin',
+    adres: 'ul. Polna 12, 12-345 Miasto',
+    pesel: '12345678901'
+  };
+
+  // Wyświetl dane użytkownika
+  res.send(`
+    <h1>Dane osobowe</h1>
+    <p>Imię: ${user.imie}</p>
+    <p>Nazwisko: ${user.nazwisko}</p>
+    <p>Adres: ${user.adres}</p>
+    <p>PESEL: ${user.pesel}</p>
+  `);
+});
+
+app.listen(3000, () => {
+  console.log('Serwer uruchomiony na porcie 3000');
+});
